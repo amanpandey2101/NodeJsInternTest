@@ -3,7 +3,6 @@ const router = express.Router();
 const cors = require('cors');
 const CryptoPrice = require('../models/crypto');
 router.use(cors());
-// Define the route to get all crypto prices data
 router.get('/crypto', async (req, res) => {
   try {
     const cryptoPrices = await CryptoPrice.find().limit(10).sort({ volume: -1 });
