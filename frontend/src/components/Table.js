@@ -6,7 +6,7 @@ function Table() {
   const [cryptoPrices, setCryptoPrices] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/crypto")
+    fetch("https://hodlinfo-d2ks.onrender.com/api/crypto")
       .then((response) => response.json())
       .then((data) => setCryptoPrices(data))
       .catch((error) => console.error("Error fetching data:", error));
