@@ -1,0 +1,106 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-header {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #2E3241;
+  border-radius: 13px;
+  display: flex;
+  
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-header .arrow{
+  margin-left: 8px;
+
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 11vw;
+  background-color: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.btcbutton{
+  cursor: pointer;
+
+  background-color: #2E3241;
+  border-radius: 13px;
+  
+
+  color: white;
+
+  align-items: center;
+}
+.table-container {
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .table th,
+  .table td {
+    padding: 6px;
+  }
+  
+  .table th {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .table th,
+  .table td {
+    padding: 4px;
+  }
+  
+  .table th {
+    font-size: 12px;
+  }
+}

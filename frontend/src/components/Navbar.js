@@ -1,72 +1,86 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
-  return (
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
  
-<nav class="bg-gray-800">
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div class="relative flex h-16 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-      
-        <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-     
-          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+   const toggleDropdown2 = () => setIsOpen2(!isOpen2);
+  return (
+    <nav class="bg-gray-800">
+      <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <div class="relative justify-between">
+          <div class="flex flex-1  sm:items-stretch sm:justify-start">
+            <div class="flex  items-center">
+              <img
+                class="block h-8 w-auto lg:hidden max-[768px]:h-6 max-[768px]:w-32"
+                src={require("../assets/hold-vector.png")}
+                alt="Your Company"
+              />
+              <img
+                class="hidden h-8 w-auto lg:block"
+                src={require("../assets/hold-vector.png")}
+                alt="Your Company"
+              />
+            </div>
             
-          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 items-center">
-          <img class="block h-8 w-auto lg:hidden" src={require("../assets/hold-vector.png")} alt="Your Company"/>
-          <img class="hidden h-8 w-auto lg:block" src={require("../assets/hold-vector.png")}  alt="Your Company"/>
-        </div>
-        <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-          
-
-          
-          
+              <div class="flex space-x-6 space-x- max-[768px]:space-x-3 pl-2 relative left-64 max-[768px]:left-0 max-[1368px]:left-20">
+                <div className="dropdown">
+                  <div className="dropdown-header text-md max-[768px]:text-sm" onClick={toggleDropdown}>
+                    INR
+                    <FontAwesomeIcon
+                      className="arrow"
+                      icon={isOpen ? faCaretUp : faCaretDown}
+                    />
+                  </div>
+                  {isOpen && (
+                    <ul className="dropdown-menu">
+                      <li className="dropdown-item">INR</li>
+                    </ul>
+                  )}
+                </div>
+                <div className="dropdown">
+                  <div className="dropdown-header text-md max-[768px]:text-sm" onClick={toggleDropdown2}>
+                    BTC
+                    <FontAwesomeIcon
+                      className="arrow"
+                      icon={isOpen2 ? faCaretUp : faCaretDown}
+                    />
+                  </div>
+                  {isOpen2 && (
+                    <ul className="dropdown-menu">
+                      <li className="dropdown-item">BTC</li>
+                      <li className="dropdown-item">ETH</li>
+                      <li className="dropdown-item">USDT</li>
+                      <li className="dropdown-item">XRP</li>
+                      <li className="dropdown-item">TRX</li>
+                      <li className="dropdown-item">DASH</li>
+                      <li className="dropdown-item">ZEC</li>
+                      <li className="dropdown-item">IOST</li>
+                      <li className="dropdown-item">WIN</li>
+                      <li className="dropdown-item">BIT</li>
+                      <li className="dropdown-item">WRX</li>
+                    </ul>
+                  )}
+                </div>
+                <div className="btcbutton text-md max-[768px]:text-sm cursor-auto max-[768px]:p-[7px] p-[10px] ">
+                    BUY BTC       
+                  </div>
+              </div>
+            
           </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-     
-
-   
-        <div class="relative ml-3">
-          <div>
-            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span class="sr-only">Open user menu</span>
-             
-            </button>
-          </div>
-
         
-         
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="sm:hidden" id="mobile-menu">
-    <div class="space-y-1 px-2 pb-3 pt-2">
     
-      <a href="/" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-      <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-      <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-      <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
-    </div>
-  </div>
-</nav>
-
-
-  
-  )
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
