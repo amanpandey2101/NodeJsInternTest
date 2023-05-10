@@ -9,20 +9,18 @@ function Table() {
 
   
   useEffect(() => {
-    
+    setLoading(true)
     fetch("https://hodlinfo-d2ks.onrender.com/api/crypto")
-      .then((response) => response.json(),setLoading(true))
-      .then((data) => setCryptoPrices(data),setLoading(false) )
-      .catch((error) => console.error("Error fetching data:", error));
-     
-      
+      .then((response) => response.json())
+      .then((data) => setCryptoPrices(data) ,setLoading(false))
+      .catch((error) => console.error("Error fetching data:", error)
+       );  
     }, []);
     
    
   return (
     <div className="flex flex-col w-full  p-16 max-[768px]:p-4 ">
       <div className="text-center">
-
       {loading && <PulseLoader color={"white"} size={10} className='mb-2' />}
       </div>
       <div className="-my-2 sm:-mx-6 lg:-mx-8 overflow-x-auto">
