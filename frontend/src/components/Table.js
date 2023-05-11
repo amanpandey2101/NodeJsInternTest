@@ -9,13 +9,16 @@ function Table() {
 
   
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch("https://hodlinfo-d2ks.onrender.com/api/crypto")
       .then((response) => response.json())
-      .then((data) => setCryptoPrices(data) ,setLoading(false))
-      .catch((error) => console.error("Error fetching data:", error)
-       );  
-    }, []);
+      .then((data) => {
+        setCryptoPrices(data);
+        setLoading(false);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+  
     
    
   return (
